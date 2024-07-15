@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: #000000;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+
+.img{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+transition: transform 0.1s ease-out; /* Add transition for smooth movement */
+margin-bottom: 400px;
+}
+
+h1 {
+    margin-left: 50px;
+    color: #ffffff;
+    font-size: 150px;
+    font-weight: 700;
+    text-transform: capitalize;
+    line-height: 1;
+    cursor: default;
+    position: relative; /* Ensures proper layering for pseudo-element */
+    display: inline-block; /* Ensures that the element takes up only as much width as needed */
+    margin-bottom: 450px; /* Space between h1 and h2 */
+}
+
+/* Hover effect styles */
+h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(64, 255, 249, 0.906); /* Semi-transparent background color */
+    opacity: 0; /* Initially hidden */
+    z-index: -1; /* Ensure it's behind the text */
+    transition: opacity 0.3s ease; /* Adjust timing as needed */
+    pointer-events: none; /* Ignore pointer events to allow clicking through */
+}
+
+h1:hover::after {
+    opacity: 1; /* Show on hover */
+}
+
+h2 {
+    color: #ffffff;
+    font-size: 200px;
+    font-weight: 900;
+    text-transform: capitalize;
+    line-height: 1;
+    cursor: default;
+   
+
+}
+
+
+.cursor {
+    display: inline-block;
+    width: 30px; /* Size of the custom cursor */
+    height: 30px;
+    background-color: #13fffbfd; /* Color of the custom cursor */
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    transition: all 0.1s ease-out;
+    pointer-events: none; /* Ensure cursor doesn't block interaction with elements */
+}
+
+h2:hover + .cursor {
+    transform: scale(10); /* Scale up the cursor on hover */
+}
